@@ -35,8 +35,18 @@ string[] SelectedWordsArray(string[] wordsArray)
     }
     return resultArray;
 }
+void PrintArray(string[] array)
+{
+    Console.Write("[");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(i < array.Length - 1 ? $"\"{array[i]}\", " : $"\"{array[i]}\"]");
+    }
+}
 
 Console.Write("Введите количество слов в массиве: ");
 int sizeArr = Convert.ToInt32(Console.ReadLine());
 string[] wordsArr = InputStringArray(sizeArr);
 string[] resultArr = SelectedWordsArray(wordsArr);
+if (resultArr.Length > 0) PrintArray(resultArr);
+else Console.WriteLine("Результирующий массив пуст :(");
